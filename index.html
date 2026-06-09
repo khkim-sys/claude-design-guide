@@ -81,6 +81,28 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
 .section-divider::before,.section-divider::after{content:'';flex:1;height:1px;background:var(--line)}
 .guide-footer{margin-top:40px;text-align:center;font-size:12px;color:var(--ink-3)}
 .guide-footer strong{color:var(--ink-2)}
+.token-tips{margin-top:16px;border-radius:12px;overflow:hidden;border:1.5px solid var(--blue-md)}
+.token-tips-header{background:var(--blue-lt);padding:10px 16px;font-size:11.5px;font-weight:800;color:var(--blue);display:flex;align-items:center;gap:7px;letter-spacing:.04em}
+.token-tips-body{background:#FAFCFF;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.token-tip-item{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink-2);line-height:1.7}
+.tt-num{width:20px;height:20px;border-radius:50%;background:var(--blue);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.token-tip-item strong{color:var(--ink);font-weight:700}
+.token-tip-item em{font-style:italic;color:var(--blue)}
+
+.usage-info{margin:0 48px 24px;padding:13px 16px;background:#EEF4FB;border:1px solid #B8D0EA;border-radius:10px;font-size:12.5px;color:#2A3A5A;display:flex;gap:10px;align-items:flex-start;line-height:1.65}
+.usage-icon{font-size:15px;flex-shrink:0;margin-top:1px}
+.usage-info strong{font-weight:700;color:#1A2A4A}
+
+.callout.tip{background:#F0FBF4;border-color:#A8DFBF}
+.callout.tip strong{color:#1A5C35}
+
+.tip-section{margin-top:28px;border-radius:14px;border:1.5px solid #E8E8F0;overflow:hidden}
+.tip-header{background:#F7F7FB;padding:12px 18px;font-size:12px;font-weight:700;color:var(--ink-2);display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--line)}
+.tip-badge{background:var(--coral);color:#fff;font-size:10px;font-weight:800;letter-spacing:.08em;padding:2px 8px;border-radius:100px}
+.tip-body{padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.tip-step{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--ink-2);line-height:1.65}
+.tip-num{width:22px;height:22px;border-radius:50%;background:var(--coral-lt);color:var(--coral);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+
 </style>
 </head>
 <body>
@@ -122,6 +144,14 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
       <div class="oc-desc">기타 형식</div>
     </div>
   </div>
+
+  <div class="usage-info">
+    <span class="usage-icon">ℹ️</span>
+    <div>
+      <strong>Claude Design 사용량은 일반 모델과 별도로 측정됩니다.</strong><br>
+      Design 탭 사용량이 초과되어도 일반 Claude 챗은 계속 이용 가능하며, 반대도 마찬가지입니다. 설정 → 사용량에서 각각 확인할 수 있습니다.
+    </div>
+  </div>
 </div>
 
 <div class="lesson lesson1">
@@ -144,6 +174,15 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
           <div class="callout warning">
             <span class="callout-icon">⚠️</span>
             <span><strong>주의:</strong> 클로드 챗·코워크에서 스토리보드를 요청할 때 반드시 <strong>'텍스트로만 작성해 달라'</strong>고 명시하세요. 이미지 디자인을 직접 출력하려 할 수 있습니다.</span>
+          </div>
+          <div class="callout tip">
+            <span class="callout-icon">💡</span>
+            <span><strong>핵심:</strong> 가장 중요한 것은 탄탄한 스토리보드와 설계입니다. 구조가 명확하고 내용이 잘 정리될수록 Claude Design이 더 완성도 높은 결과물을 만들어냅니다.</span>
+          </div>
+          <div class="step-desc" style="margin-top:10px;">보고자료에 들어갈 내용을 넣은 다음 (텍스트 또는 참고할 이미지, 엑셀 내용 등) 아래 프롬프트를 입력하세요.</div>
+          <div class="prompt-box" style="margin-top:8px;">
+            <span class="prompt-icon">💬</span>
+            <span>"첨부한 데이터를 기반으로 분석 결과 및 인사이트를 전달하는 PPT 슬라이드 보고자료를 제작합니다. 슬라이드에 사용할 스토리 보드 초안을 작성하세요. 각 슬라이드에는 키 메시지와 근거 데이터가 명확히 작성되어야 합니다. 또한 각 슬라이드에는 분석 결과를 효과적으로 시각화하는 시각화 자료도 포함입니다."</span>
           </div>
         </div>
       </div>
@@ -181,7 +220,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
           <div class="step-desc">클로드 챗·코워크에서 작성한 기획 내용을 붙여넣고, 준비한 레퍼런스 이미지도 함께 첨부합니다.</div>
           <div class="prompt-box">
             <span class="prompt-icon">💬</span>
-            <span>"이번 5월 전사 구성원 대상 월간미팅 PPT 자료(총 8장) 초안을 작성해 줘. 첨부한 레퍼런스 디자인과 아래 내용을 참고해서 전체적인 디자인 톤앤매너와 슬라이드별 텍스트 배치를 기획해 줘."</span>
+            <span>"이번 5월 전사 구성원 대상 월간미팅 PPT 자료(총 8장) 초안을 작성해주세요. 첨부한 레퍼런스 디자인과 아래 내용을 참고해서 전체적인 디자인 톤앤매너와 슬라이드별 텍스트 배치를 기획해주세요."</span>
           </div>
         </div>
       </div>
@@ -191,6 +230,19 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
           <div class="step-title">수정 및 완성</div>
           <div class="step-desc">초안 생성 후 Claude Design 내 <strong>Edit</strong> 기능에서 텍스트·도형 배치를 직접 수정하거나, <strong>PPT 파일로 다운로드</strong>하여 수정합니다.</div>
         </div>
+      </div>
+    </div>
+
+    <div class="tip-section">
+      <div class="tip-header"><span class="tip-badge">TIP</span> 애니메이션이 들어간 슬라이드 만들기</div>
+      <div class="tip-body">
+        <div class="tip-step"><span class="tip-num">1</span><span>Claude Design 접속 → 우측 <strong>Skills</strong> 패널에서 <strong>Make a deck</strong> 추가</span></div>
+        <div class="tip-step"><span class="tip-num">2</span><span>채팅창에 아래 프롬프트 입력</span></div>
+        <div class="prompt-box" style="margin:8px 0 0 32px;">
+          <span class="prompt-icon">💬</span>
+          <span>"첨부한 자료와 위 스토리보드를 기반으로 발표용 슬라이드를 생성합니다. 방향키로 서브 스텝이 순차적으로 등장하는 인터랙티브한 발표 자료로 생성하세요. 추가로 확인이 필요한 항목이 있다면 저와 함께 꼼꼼히 검토한 후 제작을 시작합니다."</span>
+        </div>
+        <div class="tip-step" style="margin-top:8px;"><span class="tip-num">3</span><span>방향키로 서브 스텝이 순차적으로 등장하는 인터랙티브한 애니메이션 슬라이드가 생성됩니다</span></div>
       </div>
     </div>
   </div>
@@ -216,6 +268,15 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
           <div class="callout warning">
             <span class="callout-icon">⚠️</span>
             <span><strong>주의:</strong> 클로드 챗·코워크에서 스토리보드를 요청할 때 반드시 <strong>'텍스트로만 작성해 달라'</strong>고 명시하세요. 이미지 디자인을 직접 출력하려 할 수 있습니다.</span>
+          </div>
+          <div class="callout tip">
+            <span class="callout-icon">💡</span>
+            <span><strong>핵심:</strong> 가장 중요한 것은 탄탄한 스토리보드와 설계입니다. 구조가 명확하고 내용이 잘 정리될수록 Claude Design이 더 완성도 높은 결과물을 만들어냅니다.</span>
+          </div>
+          <div class="step-desc" style="margin-top:10px;">보고자료에 들어갈 내용을 넣은 다음 (텍스트 또는 참고할 이미지, 엑셀 내용 등) 아래 프롬프트를 입력하세요.</div>
+          <div class="prompt-box" style="margin-top:8px;">
+            <span class="prompt-icon">💬</span>
+            <span>"첨부한 데이터를 기반으로 분석 결과 및 인사이트를 전달하는 PPT 슬라이드 보고자료를 제작합니다. 슬라이드에 사용할 스토리 보드 초안을 작성하세요. 각 슬라이드에는 키 메시지와 근거 데이터가 명확히 작성되어야 합니다. 또한 각 슬라이드에는 분석 결과를 효과적으로 시각화하는 시각화 자료도 포함입니다."</span>
           </div>
         </div>
       </div>
@@ -253,7 +314,7 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
           <div class="step-desc">Create 화면을 캡처해서 클로드 챗에게 .fig 파일과 함께 아래와 같이 요청합니다.</div>
           <div class="prompt-box">
             <span class="prompt-icon">💬</span>
-            <span>"나는 Claude Design 시스템을 만들 거야. 첨부한 .fig 파일을 분석하고, 캡처된 화면에 들어갈 내용(브랜드 정보, 컬러, 폰트, 컴포넌트 등)을 작성해 줘."</span>
+            <span>"저는 Claude Design 시스템을 제작하려고합니다. 첨부한 .fig 파일을 분석하고, 캡처된 화면에 들어갈 내용(브랜드 정보, 컬러, 폰트, 컴포넌트 등)을 작성해주세요."</span>
           </div>
           <div class="step-desc" style="margin-top:10px;">챗에서 나온 내용을 바탕으로 디자인 시스템 입력창에 작성 후 등록합니다.</div>
         </div>
@@ -274,9 +335,33 @@ body{font-family:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif
           <div class="step-title">디자인 시스템 기반으로 자료 제작</div>
           <div class="prompt-box">
             <span class="prompt-icon">💬</span>
-            <span>"슬라이드에 들어갈 내용과 함께 구축된 디자인 시스템에 맞게 첨부된 기획안 내용을 보고 자료로 만들어 줘."</span>
+            <span>"슬라이드에 들어갈 내용과 함께 구축된 디자인 시스템에 맞게 첨부된 기획안 내용을 보고 자료로 만들어 주세요."</span>
           </div>
           <div class="step-desc" style="margin-top:10px;">Claude Design이 디자인 시스템을 읽고 자동으로 PPT를 생성합니다.</div>
+
+          <div class="token-tips">
+            <div class="token-tips-header">
+              <span>💡</span> Claude Design 사용량 절약 팁
+            </div>
+            <div class="token-tips-body">
+              <div class="token-tip-item">
+                <span class="tt-num">1</span>
+                <div><strong>먼저 5장만 테스트</strong> — 전체 슬라이드를 한 번에 요청하지 말고, <em>"일단 5장만 테스트로 작업해 주세요"</em>로 시작하세요. 방향을 확인한 뒤 나머지를 요청하면 불필요한 재작업을 줄일 수 있습니다.</div>
+              </div>
+              <div class="token-tip-item">
+                <span class="tt-num">2</span>
+                <div><strong>간단한 수정은 Edit에서 직접</strong> — 텍스트 내용 수정, 색상 변경 등 간단한 작업은 채팅으로 요청하지 말고 Claude Design 내 <strong>Edit</strong> 기능에서 직접 수정하세요. 채팅 요청 없이 수정할 수 있어 사용량을 아낄 수 있습니다.</div>
+              </div>
+              <div class="token-tip-item">
+                <span class="tt-num">3</span>
+                <div><strong>스토리보드 완성 후 Design 진입</strong> — Claude Chat에서 스토리보드를 먼저 완성한 뒤 Design으로 넘어오세요. Design 내에서 긴 대화를 이어가는 것보다 사용량을 크게 절약할 수 있습니다.</div>
+              </div>
+              <div class="token-tip-item">
+                <span class="tt-num">4</span>
+                <div><strong>재생성 대신 프롬프트 수정</strong> — 결과가 마음에 들지 않으면 새 메시지를 추가하지 말고 기존 프롬프트를 직접 수정해서 재생성하세요. 대화 길이가 늘어나지 않아 토큰이 절약됩니다.</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="step">
